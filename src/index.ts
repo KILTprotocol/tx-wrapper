@@ -1,24 +1,39 @@
-import { types as kiltDefinitions } from '@kiltprotocol/type-definitions';
-import { RegistryTypes } from '@polkadot/types/types';
+import { types as kiltDefinitions } from "@kiltprotocol/type-definitions";
+import { RegistryTypes } from "@polkadot/types/types";
+import { methods as substrateMethods } from "@substrate/txwrapper-substrate";
 import {
-	getRegistryBase,
-	GetRegistryOptsCore,
-	getSpecTypes,
-	TypeRegistry,
-} from '@substrate/txwrapper-core';
+  getRegistryBase,
+  GetRegistryOptsCore,
+  getSpecTypes,
+  TypeRegistry,
+} from "@substrate/txwrapper-core";
+
+// Exporting relative methods
+// Possibly more to be added in the future
+export const methods = {
+  balances: substrateMethods.balances,
+  utility: substrateMethods.utility,
+  session: substrateMethods.session,
+  democracy: substrateMethods.democracy,
+};
+
+// Adding all the core as an export
+export * from "@substrate/txwrapper-core";
+
+// KILT registry
 
 // As a convenience to users we can provide them with hardcoded chain properties
 // as these rarely change.
 /**
- * `ChainProperties` for networks that txwrapper-foo supports. These are normally returned
+ * `ChainProperties` for networks that txwrapper-KILT supports. These are normally returned
  * by `system_properties` call, but since they don't change much, it's pretty safe to hardcode them.
  */
 const KNOWN_CHAIN_PROPERTIES = {
-	mashnet: {
-		ss58Format: 38,
-		tokenDecimals: 15,
-		tokenSymbol: 'KILT',
-	},
+  mashnet: {
+    ss58Format: 38,
+    tokenDecimals: 15,
+    tokenSymbol: "KILT",
+  },
 };
 
 // We override the `specName` property of `GetRegistryOptsCore` in order to get narrower type specificity,
@@ -27,7 +42,7 @@ const KNOWN_CHAIN_PROPERTIES = {
  * Options for the `getRegistry` function.
  */
 export interface GetRegistryOpts extends GetRegistryOptsCore {
-	specName: keyof typeof KNOWN_CHAIN_PROPERTIES;
+  specName: keyof typeof KNOWN_CHAIN_PROPERTIES;
 }
 
 /**
@@ -36,23 +51,20 @@ export interface GetRegistryOpts extends GetRegistryOptsCore {
  * @param GetRegistryOptions specName, chainName, specVersion, and metadataRpc of the current runtime
  */
 export function getRegistry({
-	specName,
-	chainName,
-	specVersion,
-	metadataRpc,
-	properties,
+  specName,
+  chainName,
+  specVersion,
+  metadataRpc,
+  properties,
 }: GetRegistryOpts): TypeRegistry {
-	const registry = new TypeRegistry();
-	registry.setKnownTypes({
-		// If your types are not packaged in the `OverrideBundleType` format, you can
-		// specify types in any of the formats supported by `RegisteredTypes`:
-		// https://github.com/polkadot-js/api/blob/4ff9b51af2c49294c676cc80abc6476565c70b11/packages/types/src/types/registry.ts#L59
-		types: (kiltDefinitions as unknown) as RegistryTypes,
-	});
+  const registry = new TypeRegistry();
+  registry.setKnownTypes({
+    types: (kiltDefinitions as unknown) as RegistryTypes,
+  });
 
-	return getRegistryBase({
-		chainProperties: properties || KNOWN_CHAIN_PROPERTIES[specName],
-		specTypes: getSpecTypes(registry, chainName, specName, specVersion),
-		metadataRpc,
-	});
+  return getRegistryBase({
+    chainProperties: properties || KNOWN_CHAIN_PROPERTIES[specName],
+    specTypes: getSpecTypes(registry, chainName, specName, specVersion),
+    metadataRpc,
+  });
 }
