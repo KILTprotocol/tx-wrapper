@@ -12,13 +12,11 @@ import {
   decode,
   deriveAddress,
 } from "@substrate/txwrapper-polkadot";
-import { balances } from "./index";
-
-import { getRegistry } from ".";
+import { methods, getRegistry } from "./index";
 import { rpcToLocalNode, signWith } from "./util";
 
 /**
- * An example of an Offline transaction and submitting the TX at the end if connected to a chain
+ * An example of offline transaction generation, with data gathering and TX submission with a dev node.
  * Entry point of the script. This script assumes a KILT mashnet node is running
  * locally on `http://localhost:9933`.
  */
@@ -56,7 +54,7 @@ async function main(): Promise<void> {
   // function takes the above data as arguments, so can be performed offline
   // if desired.
   // User would have to fetch the data manually if not wanting to use the [[rpcToLocalNode]]
-  const unsigned = balances.transfer(
+  const unsigned = methods.balances.transfer(
     {
       value: "90071992547409910", // Value is hardcoded for the example
       dest: "4sejigvu6STHdYmmYf2SuN92aNp8TbrsnBBDUj7tMrJ9Z3cG", // Bob
@@ -88,7 +86,7 @@ async function main(): Promise<void> {
   });
   console.log(
     // Decoding the transfer amount
-    `\nDecoded Transaction\n  To: ${decodedUnsigned.method.args.dest}\n` +
+    `\nDecoded Transaction\n  To: ${decodedUnsigned.method.args.dest} \n` +
       `  Amount: ${decodedUnsigned.method.args.value}`
   );
 
@@ -121,8 +119,8 @@ async function main(): Promise<void> {
   });
   console.log(`\nTransaction to Submit: ${tx}`);
 
-  // Using the Substrate-api-sidecart to make an offline transaction using a curl command
-  // curl -X POST -s http://0.0.0.0:8080/transaction -H "Content-Type: application/json" --data '{ "tx": ""}' | jq
+  // Using the substrate-api-sidecar, you can POST a TX submission:
+  // curl -X POST -s http://0.0.0.0:8080/transaction -H "Content-Type: application/json" --data '{ "tx": "<tx to submit>"}' | jq
 
   // Calculate the tx hash of the signed transaction offline.
   const expectedTxHash = construct.txHash(tx);

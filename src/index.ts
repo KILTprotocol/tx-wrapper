@@ -1,16 +1,21 @@
 import { types as kiltDefinitions } from "@kiltprotocol/type-definitions";
 import { RegistryTypes } from "@polkadot/types/types";
+import { methods as substrateMethods } from "@substrate/txwrapper-substrate";
 import {
   getRegistryBase,
   GetRegistryOptsCore,
   getSpecTypes,
   TypeRegistry,
 } from "@substrate/txwrapper-core";
-import { methods } from "@substrate/txwrapper-substrate";
 
 // Exporting relative methods
 // Possibly more to be added in the future
-export const { balances, utility, session, democracy } = methods;
+export const methods = {
+  balances: substrateMethods.balances,
+  utility: substrateMethods.utility,
+  session: substrateMethods.session,
+  democracy: substrateMethods.democracy,
+};
 
 // Adding all the core as an export
 export * from "@substrate/txwrapper-core";
