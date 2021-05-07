@@ -102,7 +102,7 @@ async function main(): Promise<void> {
     registry,
   });
   console.log(
-    // Decoded transaction of the transfer and providing the tx information 
+    // Decoded transaction of the transfer and providing the tx information
     `\nDecoded Transaction\n  To: ${payloadInfo.method.args.dest}\n` +
       `  Amount: ${payloadInfo.method.args.value}`
   );
@@ -121,6 +121,9 @@ async function main(): Promise<void> {
   });
   console.log(`\nTransaction to Submit: ${tx}`);
 
+  // Using the Substrate-api-sidecart to make an offline transaction using a curl command
+  // curl -X POST -s http://0.0.0.0:8080/transaction -H "Content-Type: application/json" --data '{ "tx": ""}' | jq
+
   // Calculate the tx hash of the signed transaction offline.
   const expectedTxHash = construct.txHash(tx);
   console.log(`\nExpected Tx Hash: ${expectedTxHash}`);
@@ -137,7 +140,7 @@ async function main(): Promise<void> {
     registry,
   });
   console.log(
-    // Decoded transaction of the transfer and providing the tx information 
+    // Decoded transaction of the transfer and providing the tx information
     `\nDecoded Transaction\n  To: ${txInfo.method.args.dest}\n` +
       `  Amount: ${txInfo.method.args.value}\n`
   );

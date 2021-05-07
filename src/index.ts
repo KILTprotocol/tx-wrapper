@@ -1,5 +1,5 @@
-import { typeBundleForPolkadot as kiltDefinitions } from "@kiltprotocol/type-definitions";
-import { OverrideBundleType } from "@polkadot/types/types";
+import { types as kiltDefinitions } from "@kiltprotocol/type-definitions";
+import { RegistryTypes } from "@polkadot/types/types";
 import {
   getRegistryBase,
   GetRegistryOptsCore,
@@ -20,7 +20,7 @@ export * from "@substrate/txwrapper-core";
 // As a convenience to users we can provide them with hardcoded chain properties
 // as these rarely change.
 /**
- * `ChainProperties` for networks that txwrapper-foo supports. These are normally returned
+ * `ChainProperties` for networks that txwrapper-KILT supports. These are normally returned
  * by `system_properties` call, but since they don't change much, it's pretty safe to hardcode them.
  */
 const KNOWN_CHAIN_PROPERTIES = {
@@ -54,7 +54,7 @@ export function getRegistry({
 }: GetRegistryOpts): TypeRegistry {
   const registry = new TypeRegistry();
   registry.setKnownTypes({
-    typesBundle: (kiltDefinitions as unknown) as OverrideBundleType,
+    types: (kiltDefinitions as unknown) as RegistryTypes,
   });
 
   return getRegistryBase({
