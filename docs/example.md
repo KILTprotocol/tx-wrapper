@@ -32,7 +32,7 @@ yarn run kilt
 
 ### Expected Outcome
 
-The script will output something similar to the following. The value's will differ. 
+The script will output something similar to the following. The value's will differ.
 
 ```bash
 Alices SS58-Encoded Address: 4r1WkS3t8rbCb11H8t3tJvGVCynwDXSUBiuGB6sLRHzCLCjs

@@ -4,7 +4,8 @@ Tooling to generate KILT offline transactions.
 
 ## Overview
 
-The library provides end-users a complete workflow to create offline transactions, combined with the substrate-sidecart to submit the transactions.
+The library provides end-users a complete workflow to create offline transactions. 
+The transaction can be combined with the [substrate-sidecart](https://paritytech.github.io/substrate-api-sidecar/dist/) to submit the transactions to the KILT node.
 
 
 ## How to install `tx-wrapper`
