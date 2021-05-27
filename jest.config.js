@@ -1,7 +1,10 @@
 module.exports = {
   preset: "ts-jest",
   testEnvironment: "node",
-  setupFilesAfterEnv: ["./test/jest.setup-file.ts"],
+  transformIgnorePatterns: ['<rootDir>/node_modules/(?!@polkadot|@babel/runtime/helpers/esm/)'],
   coverageDirectory: "../coverage",
   moduleFileExtensions: ["js", "json", "ts"],
+  transform: {
+    "^.+\\.[t|j]sx?$": "babel-jest",
+  },
 };
