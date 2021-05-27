@@ -62,9 +62,7 @@ async function main(): Promise<void> {
     {
       address: deriveAddress(alice.publicKey, 38),
       blockHash,
-      blockNumber: registry
-        .createType("BlockNumber", block.header.number)
-        .toNumber(),
+      blockNumber: block.header.number,
       eraPeriod: 64,
       genesisHash,
       metadataRpc,

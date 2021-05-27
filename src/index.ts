@@ -1,4 +1,4 @@
-import { types as kiltDefinitions } from "@kiltprotocol/type-definitions";
+import { types9 as kiltDefinitions } from "@kiltprotocol/type-definitions";
 import { RegistryTypes } from "@polkadot/types/types";
 import { methods as substrateMethods } from "@substrate/txwrapper-substrate";
 import {
