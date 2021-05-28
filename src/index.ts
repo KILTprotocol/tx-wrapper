@@ -1,12 +1,12 @@
 import { types9 as kiltDefinitions } from "@kiltprotocol/type-definitions";
 import { RegistryTypes } from "@polkadot/types/types";
-import { methods as substrateMethods } from "@substrate/txwrapper-substrate";
 import {
   getRegistryBase,
   GetRegistryOptsCore,
   getSpecTypes,
   TypeRegistry,
 } from "@substrate/txwrapper-core";
+import { methods as substrateMethods } from "@substrate/txwrapper-substrate";
 
 // Exporting relative methods
 // Possibly more to be added in the future
@@ -59,7 +59,7 @@ export function getRegistry({
 }: GetRegistryOpts): TypeRegistry {
   const registry = new TypeRegistry();
   registry.setKnownTypes({
-    types: (kiltDefinitions as unknown) as RegistryTypes,
+    types: kiltDefinitions as unknown as RegistryTypes,
   });
 
   return getRegistryBase({

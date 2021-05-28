@@ -15,7 +15,8 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "outDir": "lib/"
+    "outDir": "lib/",
+    "pretty": true
   },
   "include": ["src/**/*.ts", "test/jest.setup-file.ts"],
   "exclude": ["node_modules", "src/__integrationtests__", "lib"]

@@ -12,7 +12,8 @@ import {
   decode,
   deriveAddress,
 } from "@substrate/txwrapper-polkadot";
-import { methods, getRegistry } from "./index";
+
+import { getRegistry, methods } from "./index";
 import { rpcToLocalNode, signWith } from "./util";
 
 /**
