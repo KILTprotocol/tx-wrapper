@@ -13,49 +13,44 @@ import { rpcToLocalNode, signWith } from "../util";
 import { methods, getRegistry } from "../index";
 
 let alice: KeyringPair;
-let getBlock: any;
-let block: any;
-let blockHash: any;
-let genesisHash: any;
+let blockHash: string;
+let genesisHash: string;
 let metadataRpc: any;
-let specVersion: any;
-let transactionVersion: any;
-let specName: any;
 let getRuntimeVersion: any;
 let registry: TypeRegistry;
 let keyring: Keyring;
 let unsigned: UnsignedTransaction;
-let decodedUnsigned: DecodedUnsignedTx;
 let signingPayload: string;
-let payloadInfo: any;
 let signature: any;
 let tx: any;
 let expectedTxHash: any;
 let actualTxHash: any;
-let txInfo: any;
+
 beforeAll(async () => {
   await cryptoWaitReady();
 
   keyring = new Keyring();
   alice = keyring.addFromUri("//Alice", { name: "Alice" }, "ed25519");
-  getBlock = await rpcToLocalNode("chain_getBlock");
-  getBlock = { block };
+  const { specVersion, transactionVersion, specName } = await rpcToLocalNode(
+    "state_getRuntimeVersion"
+  );
+  getRuntimeVersion = { specVersion, transactionVersion, specName };
   blockHash = await rpcToLocalNode("chain_getBlockHash");
   genesisHash = await rpcToLocalNode("chain_getBlockHash", [0]);
   metadataRpc = await rpcToLocalNode("state_getMetadata");
-  getRuntimeVersion = await rpcToLocalNode("state_getRuntimeVersion");
-  getRuntimeVersion = { specVersion, transactionVersion, specName };
 
   registry = getRegistry({
     chainName: "mashnet-node",
-    specName,
-    specVersion,
+    specName: getRuntimeVersion.specName,
+    specVersion: getRuntimeVersion.specVersion,
     metadataRpc,
   });
 });
 
 describe("Checks the transfer method while connected to the chain", () => {
   it("Creates a transfer", async () => {
+    const { block } = await rpcToLocalNode("chain_getBlock");
+
     unsigned = methods.balances.transfer(
       {
         value: "90071992547409910",
@@ -69,31 +64,18 @@ describe("Checks the transfer method while connected to the chain", () => {
         genesisHash,
         metadataRpc,
         nonce: 0,
-        specVersion,
+        specVersion: getRuntimeVersion.specVersion,
         tip: 0,
-        transactionVersion,
+        transactionVersion: getRuntimeVersion.transactionVersion,
       },
       {
         metadataRpc,
         registry,
       }
     );
-    expect(unsigned).resolves.toBeDefined();
-  }, 3000);
 
-  it("Creates a signed payload", () => {
-    decodedUnsigned = decode(unsigned, {
-      metadataRpc,
-      registry,
-    });
-    console.log("decoded unsigned", decodedUnsigned);
     signingPayload = construct.signingPayload(unsigned, { registry });
 
-    payloadInfo = decode(signingPayload, {
-      metadataRpc,
-      registry,
-    });
-    console.log("Payment info", payloadInfo);
     signature = signWith(alice, signingPayload, {
       metadataRpc,
       registry,
@@ -103,20 +85,9 @@ describe("Checks the transfer method while connected to the chain", () => {
       metadataRpc,
       registry,
     });
-  });
 
-  it("Creates the signed transaction offline", () => {
     expectedTxHash = construct.txHash(tx);
-  });
 
-  it("Submits the signed transaction to a local chain", async () => {
     actualTxHash = await rpcToLocalNode("author_submitExtrinsic", [tx]);
-
-    txInfo = decode(tx, {
-      metadataRpc,
-      registry,
-    });
-
-    console.log("txInfo", txInfo);
-  });
+  }, 30000);
 });

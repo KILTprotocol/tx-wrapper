@@ -22,8 +22,7 @@
     "lint:fix": "yarn lint --fix",
     "style": "prettier -l 'src/**/*'",
     "style:fix": "yarn style --write",
-    "test": "jest --group=integration",
-    "test:run": "{ lsof -i :9944 > /dev/null && yarn test:integration:run; } || echo 'Can not connect to chain. Is it running?'; exit 1;"
+    "test": "jest --group=integration"
   },
   "dependencies": {
     "@kiltprotocol/type-definitions": "^0.1.4",
