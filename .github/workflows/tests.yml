@@ -100,7 +100,7 @@ jobs:
           IMAGE_TAG: latest-rc
         run: |
           docker pull $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-          docker run -d --rm -p 9933:9933 $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG --dev --ws-port 9944 --ws-external
+          docker run -d --rm -p 9933:9933 $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG --dev --ws-port 9944 --ws-external --rpc-external --rpc-methods=unsafe
           sleep 5s
           yarn test
           docker stop $(docker ps -f ancestor=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -q)
