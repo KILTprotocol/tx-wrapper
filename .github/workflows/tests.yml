@@ -27,16 +27,13 @@ jobs:
 
     needs: check_skip
 
-    strategy:
-      matrix:
-        node-version: [14.x]
-
     steps:
       - uses: actions/checkout@v1
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Use Node.js 14
         uses: actions/setup-node@v1
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: 14
+
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
         run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
@@ -56,7 +53,7 @@ jobs:
       - name: upload build
         uses: actions/upload-artifact@v2
         with:
-          name: build-${{ matrix.node-version }}
+          name: build-14.x
           path: build.zip
 
   lint:
@@ -76,11 +73,6 @@ jobs:
     runs-on: ubuntu-latest
 
     needs: build
-
-    strategy:
-      matrix:
-        image: ["latest-rc"]
-        required: ["required"]
 
     steps:
       - uses: actions/download-artifact@v2
@@ -105,7 +97,7 @@ jobs:
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
           ECR_REPOSITORY: kilt/prototype-chain
-          IMAGE_TAG: ${{ matrix.image }}
+          IMAGE_TAG: latest-rc
         run: |
           docker pull $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
           docker run -d --rm -p 9933:9933 $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG --dev --ws-port 9944 --ws-external
