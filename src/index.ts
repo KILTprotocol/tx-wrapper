@@ -1,4 +1,4 @@
-import { types9 as kiltDefinitions } from "@kiltprotocol/type-definitions";
+import { types8 as kiltDefinitions } from "@kiltprotocol/type-definitions";
 import { RegistryTypes } from "@polkadot/types/types";
 import {
   getRegistryBase,
