@@ -102,5 +102,5 @@ jobs:
           docker pull $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
           docker run -d --rm -p 9933:9933 $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG --dev --ws-port 9944 --ws-external
           sleep 5s
-          yarn test:run
+          yarn test
           docker stop $(docker ps -f ancestor=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -q)
