@@ -16,7 +16,7 @@ jobs:
   check_skip:
     runs-on: ubuntu-latest
 
-    if: "! startsWith(github.event.head_commit.message, '[CI Skip]') && github.repository == 'kiltprotocol/sdk-js'"
+    if: "! startsWith(github.event.head_commit.message, '[CI Skip]') && github.repository == 'kiltprotocol/txwrapper'"
 
     steps:
       - name: Not Skipped
@@ -108,7 +108,7 @@ jobs:
           IMAGE_TAG: ${{ matrix.image }}
         run: |
           docker pull $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-          docker run -d --rm -p 9933:9933 $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG --tmp --dev --ws-port 9944 --ws-external
+          docker run -d --rm -p 9933:9933 $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG --dev --ws-port 9944 --ws-external
           sleep 5s
           yarn test:run
           docker stop $(docker ps -f ancestor=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -q)
