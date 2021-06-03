@@ -67,7 +67,7 @@ jobs:
       - name: unzip
         run: unzip build.zip -d .
       - name: lint
-        run: eslint --format=codeframe
+        run: yarn lint
 
   integration_test:
     runs-on: ubuntu-latest
