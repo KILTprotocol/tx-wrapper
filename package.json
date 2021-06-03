@@ -18,7 +18,7 @@
   "scripts": {
     "build": "tsc",
     "kilt": "node lib/kiltExample",
-    "lint": "eslint",
+    "lint": "eslint --format=codeframe",
     "lint:fix": "yarn lint --fix",
     "style": "prettier -l 'src/**/*'",
     "style:fix": "yarn style --write",
