@@ -19,17 +19,20 @@ async function multiTransfer(
 
   const keyring = new Keyring();
 
-  const sender = keyring.addFromMnemonic(identity);
-
-  sender
-
+  const sender = keyring.addFromUri("//Alice");
+  console.log("start");
   const { block } = await rpcToLocalNode("chain_getBlock");
+  console.log(block);
   const blockHash = await rpcToLocalNode("chain_getBlockHash");
+  console.log(blockHash);
   const genesisHash = await rpcToLocalNode("chain_getBlockHash", [0]);
+  console.log(genesisHash);
   const metadataRpc = await rpcToLocalNode("state_getMetadata");
+  console.log(metadataRpc);
   const { specVersion, transactionVersion, specName } = await rpcToLocalNode(
     "state_getRuntimeVersion"
   );
+  console.log(specVersion, transactionVersion, specName);
   const registry = getRegistry({
     chainName: "kilt-parachain",
     specName,
@@ -62,7 +65,7 @@ async function multiTransfer(
 
     return method;
   });
-
+  console.log(transferables);
   const unsigned = methods.utility.batchAll(
     { calls: transferables },
     {
@@ -84,15 +87,16 @@ async function multiTransfer(
       registry,
     }
   );
+  console.log(unsigned);
 
   const signingPayload = construct.signingPayload(unsigned, { registry });
-
+  console.log(signingPayload);
   const signature = signWith(sender, signingPayload, { metadataRpc, registry });
-
+  console.log(signature);
   const tx = construct.signedTx(unsigned, signature, { metadataRpc, registry });
-
+  console.log(tx);
   const expectedTxHash = construct.txHash(tx);
-
+  console.log(expectedTxHash);
   return expectedTxHash;
 }
 

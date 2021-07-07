@@ -18,7 +18,7 @@
   "scripts": {
     "build": "tsc",
     "kilt": "node lib/kiltExample",
-    "bulk": "node lib/bulkScript"
+    "bulk": "node lib/tests/bulkScript"
   },
   "dependencies": {
     "@kiltprotocol/type-definitions": "^0.1.3",
