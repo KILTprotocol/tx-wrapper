@@ -74,11 +74,6 @@
   resolved "https://registry.yarnpkg.com/@interlay/polkabtc-types/-/polkabtc-types-0.7.4.tgz#4b90c9c3a7b1c697ea28f0a80993dc4113996e40"
   integrity sha512-nlYrcBDcxvyjELn1bRb+3qmVSVEGu4jMdDe2oTgtDx7Q/mIKtxw63rICuuzh7yaPU+yrviaP/CN6ZkaoQwuP1A==
 
-"@kiltprotocol/type-definitions@^0.1.3":
-  version "0.1.3"
-  resolved "https://registry.yarnpkg.com/@kiltprotocol/type-definitions/-/type-definitions-0.1.3.tgz#4be80cb95a9e9f0f3c13d91e13a826b0de899727"
-  integrity sha512-kRLpFYTzbAFgjsuCSQT3QP13nyhOK6z/FtykT1rpzZzr68Fisw6zpzkCMGBT7dazFN4FvQ8TCXuUWOGHbBWSVQ==
-
 "@kiltprotocol/type-definitions@^0.1.8":
   version "0.1.8"
   resolved "https://registry.yarnpkg.com/@kiltprotocol/type-definitions/-/type-definitions-0.1.8.tgz#a9dfd5ddd3589a3a8a2fe8da3272682fcfb4b996"
@@ -121,7 +116,7 @@
     "@polkadot/util-crypto" "^6.11.1"
     "@polkadot/x-rxjs" "^6.11.1"
 
-"@polkadot/api@4.17.1", "@polkadot/api@^4.16.2":
+"@polkadot/api@4.17.1", "@polkadot/api@^4.17.1":
   version "4.17.1"
   resolved "https://registry.yarnpkg.com/@polkadot/api/-/api-4.17.1.tgz#c9c8e7f5e33122aeb5b1345e43bc9579658720db"
   integrity sha512-uuNIKWC+PjM+1AARRu4NLWOEudZE6DW8UOlaubx3uGhPywqPIP+HGWP2I6PqRGYKARBWxxOvca1Q7WoKzpYC8w==
@@ -603,37 +598,37 @@
     remark "^13.0.0"
     strip-markdown "^4.0.0"
 
-"@substrate/txwrapper-core@^1.2.5":
-  version "1.2.5"
-  resolved "https://registry.yarnpkg.com/@substrate/txwrapper-core/-/txwrapper-core-1.2.5.tgz#dc5dec667d1fb21eb10cc63eeb5416c7becdc437"
-  integrity sha512-CzMN4K+ZGyHSpvjdxzJmpg1jV/Bz6Wz82J4bwqc8P5GZ3BZCAJ+gHWAFDd8g0KqFoD3K1RrfzF5fgrvYPMH9Fw==
+"@substrate/txwrapper-core@^1.2.6":
+  version "1.2.6"
+  resolved "https://registry.yarnpkg.com/@substrate/txwrapper-core/-/txwrapper-core-1.2.6.tgz#74023a7111a8ff9800f84f1549332cda2ed514b5"
+  integrity sha512-aHOl3is+7ucnHq9yCfqYGkLS6YE7hBKwKzOE6x6nYDW+362ocWlsLS6FV3Smk8v9L/AmgCbv+NrhhDb0FVFogQ==
   dependencies:
-    "@polkadot/api" "^4.16.2"
+    "@polkadot/api" "^4.17.1"
     memoizee "0.4.15"
 
-"@substrate/txwrapper-polkadot@^1.2.5":
-  version "1.2.5"
-  resolved "https://registry.yarnpkg.com/@substrate/txwrapper-polkadot/-/txwrapper-polkadot-1.2.5.tgz#1366401b91cadbd44215e4de1f4ae2cade61966b"
-  integrity sha512-23Xcv+WZi2NzZLu2CGiHlghA+WYflOrjebVegreq1GAWaK9XgopBCMVv2H4+DnfXKXaSQFxjlAGdsp2vP/p1lw==
+"@substrate/txwrapper-polkadot@^1.2.6":
+  version "1.2.6"
+  resolved "https://registry.yarnpkg.com/@substrate/txwrapper-polkadot/-/txwrapper-polkadot-1.2.6.tgz#21fd094b7ae5178ce5d38dafc3fd23a21b3c5f1f"
+  integrity sha512-K/8UJvQntsXbjWkVOQA/H54p5da1A0T8RxAhY0vokgxdPiLS7xKwgM264/ovYsF/rV2PxEi1JQfMCWmmbSHITg==
   dependencies:
-    "@substrate/txwrapper-core" "^1.2.5"
-    "@substrate/txwrapper-substrate" "^1.2.5"
+    "@substrate/txwrapper-core" "^1.2.6"
+    "@substrate/txwrapper-substrate" "^1.2.6"
 
-"@substrate/txwrapper-registry@^1.2.5":
-  version "1.2.5"
-  resolved "https://registry.yarnpkg.com/@substrate/txwrapper-registry/-/txwrapper-registry-1.2.5.tgz#3bfc1c3c7757f9b1628dcdb0ef9d0caf947d5349"
-  integrity sha512-SuwsTf1d149OzniT5j4PVSuv1UoXwh3mx6Imqe0+V89iVYtXdRYiUzOE8gbUpqvXCQPFnS2yBoTigXtX9PlkfQ==
+"@substrate/txwrapper-registry@^1.2.6":
+  version "1.2.6"
+  resolved "https://registry.yarnpkg.com/@substrate/txwrapper-registry/-/txwrapper-registry-1.2.6.tgz#847e17743bf17f02f20f55fdeaf10cdaed8c1fa1"
+  integrity sha512-ZXbCtKCnrvnAiTFuTtPy65zs9uufyJ4WqTRzNQl1QfhiTKYnsz8WYjF7EYA31Ryu1byPQHQa5LGf7g65IjUvWA==
   dependencies:
     "@polkadot/apps-config" "^0.94.1"
-    "@polkadot/networks" "^6.10.1"
-    "@substrate/txwrapper-core" "^1.2.5"
+    "@polkadot/networks" "^6.11.1"
+    "@substrate/txwrapper-core" "^1.2.6"
 
-"@substrate/txwrapper-substrate@^1.2.5":
-  version "1.2.5"
-  resolved "https://registry.yarnpkg.com/@substrate/txwrapper-substrate/-/txwrapper-substrate-1.2.5.tgz#691d00138206a964fd17f091aa3b33d0b98937d6"
-  integrity sha512-iFo1TgWBOfHhvv2qmXnyXj6BqGeScWtJqqsPb5cTvRmbx3AMqmM2/tpl5lIbC6MQFU7DQvDicvmu6IrOnixekA==
+"@substrate/txwrapper-substrate@^1.2.6":
+  version "1.2.6"
+  resolved "https://registry.yarnpkg.com/@substrate/txwrapper-substrate/-/txwrapper-substrate-1.2.6.tgz#3abb52af9d3b8c4d29bca6841b2a4ef0e35fda67"
+  integrity sha512-zcj11ABoDKUYN17YTqeJ9niam/5/zPCEBJUOwIiFfjTBSyFDvjMyqMInKsJ3XkPojVwQ96K/6SD18sYMIMAAgQ==
   dependencies:
-    "@substrate/txwrapper-core" "^1.2.5"
+    "@substrate/txwrapper-core" "^1.2.6"
 
 "@types/bn.js@^4.11.6":
   version "4.11.6"

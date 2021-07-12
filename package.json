@@ -18,14 +18,17 @@
   "scripts": {
     "build": "tsc",
     "kilt": "node lib/kiltExample",
-    "bulk": "node lib/bulkScript"
+    "bulk": "node lib/tests/bulkTransfers",
+    "transfers": "node lib/tests/multipleTransfers",
+    "multi": "node lib/tests/multipleSendingAccounts"
+
   },
   "dependencies": {
-    "@kiltprotocol/type-definitions": "^0.1.3",
-    "@substrate/txwrapper-core": "^1.2.5",
-    "@substrate/txwrapper-polkadot": "^1.2.5",
-    "@substrate/txwrapper-registry": "^1.2.5",
-    "@substrate/txwrapper-substrate": "^1.2.5"
+    "@kiltprotocol/type-definitions": "^0.1.8",
+    "@substrate/txwrapper-core": "^1.2.6",
+    "@substrate/txwrapper-polkadot": "^1.2.6",
+    "@substrate/txwrapper-registry": "^1.2.6",
+    "@substrate/txwrapper-substrate": "^1.2.6"
   },
   "devDependencies": {
     "ts-node": "^9.1.1",
