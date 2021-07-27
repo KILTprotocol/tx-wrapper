@@ -4,7 +4,7 @@ import metadataRpc from "./metadataRpc";
  * Base tx information common to all tested transactions
  */
 export const TEST_BASE_TX_INFO = {
-  address: "4rDeMGr3Hi4NfxRUp8qVyhvgW3BSUBLneQisGa9ASkhh2sXB", // seed "//Alice"
+  address: "4rDeMGr3Hi4NfxRUp8qVyhvgW3BSUBLneQisGa9ASkhh2sXB", // Random address
   blockHash:
     "0x4fe0511d393bb6d96c36e1edcf5ec52f007d3c4b916c8e3002f671a80acea8ea",
   blockNumber: 58362,
