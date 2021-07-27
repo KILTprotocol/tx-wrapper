@@ -18,12 +18,4 @@ describe("staking collator executes the network exit of a candidate who requeste
       "0x0a0900921cbc0ffe09a865dbf4ae1d0410aa17c656881fe86666da0f97939e3701b674"
     );
   });
-
-  it("should take execute leave candidates", () => {
-    const unsignedExecuteLeaveCandidates = executeLeaveCandidates(
-      TEST_METHOD_ARGS.staking.collator.executeLeaveCandidates,
-      TEST_BASE_TX_INFO,
-      MASHNET_NODE_TEST_OPTIONS
-    );
-  });
 });

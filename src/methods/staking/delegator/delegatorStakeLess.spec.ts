@@ -18,12 +18,4 @@ describe("staking reduce the stake for delegating a collator candidate", () => {
       "0x0a1200921cbc0ffe09a865dbf4ae1d0410aa17c656881fe86666da0f97939e3701b6740080c6a47e8d03000000000000000000"
     );
   });
-
-  it("should take delegator stake less", () => {
-    const unsignedDelegatorStakeLess = delegatorStakeLess(
-      TEST_METHOD_ARGS.staking.delegator.delegatorStakeLess,
-      TEST_BASE_TX_INFO,
-      MASHNET_NODE_TEST_OPTIONS
-    );
-  });
 });

@@ -17,12 +17,4 @@ describe("staking collator leave candidates", () => {
     itHasCorrectBaseTxInfo(unsigned);
     expect(unsigned.method).toBe("0x0a0a");
   });
-
-  it("should take cancel leave candidate", () => {
-    const unsignedCancelLeave = cancelLeaveCandidates(
-      TEST_METHOD_ARGS.staking.collator.cancelLeaveCandidates,
-      TEST_BASE_TX_INFO,
-      MASHNET_NODE_TEST_OPTIONS
-    );
-  });
 });

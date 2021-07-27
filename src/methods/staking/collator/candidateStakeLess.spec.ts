@@ -17,12 +17,4 @@ describe("staking collator decreases staked amount", () => {
     itHasCorrectBaseTxInfo(unsigned);
     expect(unsigned.method).toBe("0x0a0c0080c6a47e8d03000000000000000000");
   });
-
-  it("should take candidate stake less", () => {
-    const unsignedCandidateStakeLess = candidateStakeLess(
-      TEST_METHOD_ARGS.staking.collator.candidateStakeLess,
-      TEST_BASE_TX_INFO,
-      MASHNET_NODE_TEST_OPTIONS
-    );
-  });
 });

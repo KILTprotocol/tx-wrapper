@@ -18,12 +18,4 @@ describe("staking terminates an ongoing delegation for a given collator candidat
       "0x0a1000921cbc0ffe09a865dbf4ae1d0410aa17c656881fe86666da0f97939e3701b674"
     );
   });
-
-  it("should take revoke delegation", () => {
-    const unsignedRevokeDelegation = revokeDelegation(
-      TEST_METHOD_ARGS.staking.delegator.revokeDelegation,
-      TEST_BASE_TX_INFO,
-      MASHNET_NODE_TEST_OPTIONS
-    );
-  });
 });
