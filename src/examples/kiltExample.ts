@@ -12,8 +12,8 @@ import {
   decode,
   deriveAddress,
 } from "@substrate/txwrapper-polkadot";
-import { methods, getRegistry } from "./index";
-import { rpcToLocalNode, signWith } from "./util";
+import { methods, getRegistry } from "../index";
+import { rpcToLocalNode, signWith } from "../util";
 
 /**
  * An example of offline transaction generation, with data gathering and TX submission with a dev node.
