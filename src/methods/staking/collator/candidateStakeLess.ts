@@ -10,11 +10,11 @@ export interface StakingCandidateStakeLessArgs extends Args {
   /**
    * The SS-58 encoded Candidates address.
    */
-  Candidates: string;
+  candidate: string;
   /**
    * Decreased stake amount.
    */
-   LessStake: string;
+  less: string;
 }
 
 /**
@@ -34,7 +34,7 @@ export function candidateStakeLess(
       method: {
         args,
         name: "candidateStakeLess",
-        pallet: "staking",
+        pallet: "parachainStaking",
       },
       ...info,
     },

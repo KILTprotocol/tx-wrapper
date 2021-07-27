@@ -10,15 +10,11 @@ export interface StakingDelegatorStakeLessArgs extends Args {
   /**
    * The SS-58 encoded Delegators address.
    */
-  Delegators: string;
-  /**
-   * The SS-58 encoded Delegators address.
-   */
-  Collators: string;
+  candidate: string;
   /**
    * Decrease amount staked.
    */
-  LessStake: string;
+  less: string;
 }
 
 /**
@@ -39,7 +35,7 @@ export function delegatorStakeLess(
       method: {
         args,
         name: "delegatorStakeLess",
-        pallet: "staking",
+        pallet: "parachainStaking",
       },
       ...info,
     },

@@ -6,11 +6,11 @@ import {
   UnsignedTransaction,
 } from "@substrate/txwrapper-core";
 
-export interface StakingInitLeaveCandidateArgs extends Args {
+export interface StakingInitLeaveCandidatesArgs extends Args {
   /**
    * The SS-58 encoded Candidates address.
    */
-  Candidates: string;
+   candidate: string;
 }
 
 /**
@@ -20,8 +20,8 @@ export interface StakingInitLeaveCandidateArgs extends Args {
  * @param info - Information required to construct the transaction.
  * @param options - Registry and metadata used for constructing the method.
  */
-export function initLeaveCandidate(
-  args: StakingInitLeaveCandidateArgs,
+export function initLeaveCandidates(
+  args: StakingInitLeaveCandidatesArgs,
   info: BaseTxInfo,
   options: OptionsWithMeta
 ): UnsignedTransaction {
@@ -29,8 +29,8 @@ export function initLeaveCandidate(
     {
       method: {
         args,
-        name: "initLeaveCandidate",
-        pallet: "staking",
+        name: "initLeaveCandidates",
+        pallet: "parachainStaking",
       },
       ...info,
     },

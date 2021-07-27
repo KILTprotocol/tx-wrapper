@@ -10,11 +10,11 @@ export interface StakingRevokeDelegatorsArgs extends Args {
   /**
    * The SS-58 encoded Delegators address.
    */
-  Delegators: string;
+  delegator: string;
   /**
    * The SS-58 encoded Collators address.
    */
-   Collators: string;
+  collator: string;
 }
 
 /**
@@ -33,13 +33,11 @@ export function revokeDelegation(
     {
       method: {
         args,
-        name: "revokeDelegators",
-        pallet: "staking",
+        name: "revokeDelegation",
+        pallet: "parachainStaking",
       },
       ...info,
     },
     options
   );
 }
-
-

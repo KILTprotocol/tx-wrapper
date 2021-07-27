@@ -10,11 +10,11 @@ export interface StakingJoinCandidatesArgs extends Args {
   /**
    * The SS-58 encoded Candidates address.
    */
-  Candidate: string;
+  candidate: string;
   /**
    * The Ammount the collator candidate wants to Stake.
    */
-  Stake: string;
+  stake: string;
 }
 
 /**
@@ -34,7 +34,7 @@ export function joinCandidates(
       method: {
         args,
         name: "joinCandidates",
-        pallet: "staking",
+        pallet: "parachainStaking",
       },
       ...info,
     },

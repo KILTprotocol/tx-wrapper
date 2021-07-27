@@ -10,7 +10,7 @@ export interface StakingCancelLeaveCandidatesArgs extends Args {
   /**
    * The SS-58 encoded Candidates address.
    */
-  Candidates: string;
+  candidate: string;
 }
 
 /**
@@ -30,7 +30,7 @@ export function cancelLeaveCandidates(
       method: {
         args,
         name: "cancelLeaveCandidates",
-        pallet: "staking",
+        pallet: "parachainStaking",
       },
       ...info,
     },

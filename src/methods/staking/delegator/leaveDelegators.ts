@@ -10,7 +10,7 @@ export interface StakingLeaveDelegatorsArgs extends Args {
   /**
    * The SS-58 encoded Delegators address.
    */
-  Delegators: string;
+  delegator: string;
 }
 
 /**
@@ -30,7 +30,7 @@ export function leaveDelegators(
       method: {
         args,
         name: "leaveDelegators",
-        pallet: "staking",
+        pallet: "parachainStaking",
       },
       ...info,
     },

@@ -8,17 +8,13 @@ import {
 
 export interface StakingDelegatorStakeMoreArgs extends Args {
   /**
-   * The SS-58 encoded Delegators address.
-   */
-  Delegators: string;
-  /**
    * The SS-58 encoded Collators address.
    */
-  Collators: string;
+  candidate: string;
   /**
    * Increase amount staked.
    */
-  MoreStake: string;
+  more: string;
 }
 
 /**
@@ -39,7 +35,7 @@ export function delegatorStakeMore(
       method: {
         args,
         name: "delegatorStakeMore",
-        pallet: "staking",
+        pallet: "parachainStaking",
       },
       ...info,
     },
