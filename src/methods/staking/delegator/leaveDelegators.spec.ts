@@ -5,7 +5,7 @@ import {
   MASHNET_NODE_TEST_OPTIONS,
 } from "../../../tests/constants";
 import { leaveDelegators } from "./leaveDelegators";
-describe("staking leave the set of delegators and, by implication, revoke all ongoing", () => {
+describe("staking, leave the set of delegators and, by implication, revoke all ongoing delegations", () => {
   it("should work", () => {
     const unsigned = leaveDelegators(
       TEST_METHOD_ARGS.staking.delegator.leaveDelegators,

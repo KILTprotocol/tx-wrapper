@@ -5,7 +5,7 @@ import {
   MASHNET_NODE_TEST_OPTIONS,
 } from "../../../tests/constants";
 import { executeLeaveCandidates } from "./executeLeaveCandidates";
-describe("staking collator executes the network exit of a candidate who requested to leave", () => {
+describe("staking, collator executes the network exit of a candidate who requested to leave", () => {
   it("should work", () => {
     const unsigned = executeLeaveCandidates(
       TEST_METHOD_ARGS.staking.collator.executeLeaveCandidates,

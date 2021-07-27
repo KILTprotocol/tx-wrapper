@@ -18,7 +18,8 @@ export interface StakingJoinCandidatesArgs extends Args {
 }
 
 /**
- * (Re-)join the Candidates pool. when does it come into effect?
+ * Join the set of collator candidates by staking at least minimum
+ * candidate stake and at most maximum candidate stake.
  *
  * @param args - Arguments specific to this method.
  * @param info - Information required to construct the transaction.

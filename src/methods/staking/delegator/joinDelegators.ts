@@ -18,8 +18,7 @@ export interface StakingJoinDelegatorsArgs extends Args {
 }
 
 /**
- * Account joins the delegators and selects a collator to stake on.
- * When does it come into effect?
+ * Join the set of delegators by delegating to a collator candidate
  *
  * @param args - Arguments specific to this method.
  * @param info - Information required to construct the transaction.

@@ -5,7 +5,7 @@ import {
   MASHNET_NODE_TEST_OPTIONS,
 } from "../../../tests/constants";
 import { joinDelegators } from "./joinDelegators";
-describe("staking join the set of delegators by delegating to a collator candidate", () => {
+describe("staking, join the set of delegators by delegating to a collator candidate", () => {
   it("should work", () => {
     const unsigned = joinDelegators(
       TEST_METHOD_ARGS.staking.delegator.joinDelegators,

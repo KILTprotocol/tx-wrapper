@@ -5,7 +5,7 @@ import {
   MASHNET_NODE_TEST_OPTIONS,
 } from "../../../tests/constants";
 import { initLeaveCandidates } from "./initLeaveCandidates";
-describe("staking collator request to leave the set of collator candidates", () => {
+describe("staking, collator request to leave the set of collator candidates", () => {
   it("should work", () => {
     const unsigned = initLeaveCandidates(
       TEST_METHOD_ARGS.staking.collator.initLeaveCandidates,

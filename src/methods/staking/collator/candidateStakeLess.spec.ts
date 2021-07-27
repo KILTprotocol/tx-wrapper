@@ -6,7 +6,7 @@ import {
 } from "../../../tests/constants";
 import { candidateStakeLess } from "./candidateStakeLess";
 
-describe("staking collator decreases staked amount", () => {
+describe("staking, stake less funds for a collator candidate", () => {
   it("should work", () => {
     const unsigned = candidateStakeLess(
       TEST_METHOD_ARGS.staking.collator.candidateStakeLess,

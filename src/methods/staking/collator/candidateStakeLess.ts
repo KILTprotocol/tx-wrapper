@@ -18,7 +18,7 @@ export interface StakingCandidateStakeLessArgs extends Args {
 }
 
 /**
- * Candidate that has joined can stake less, but not below the minimum. When does it come into effect?
+ * Stake less funds for a collator candidate
  *
  * @param args - Arguments specific to this method.
  * @param info - Information required to construct the transaction.

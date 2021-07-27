@@ -14,8 +14,7 @@ export interface StakingExecuteLeaveCandidatesArgs extends Args {
 }
 
 /**
- * Once the candidate has been removed they are able to execute the off boarding a candidate from the candidate pool.
- *  when does it come into effect?
+ * Executes the network exit of a candidate who requested to leave
  *
  * @param args - Arguments specific to this method.
  * @param info - Information required to construct the transaction.

@@ -5,7 +5,7 @@ import {
   MASHNET_NODE_TEST_OPTIONS,
 } from "../../../tests/constants";
 import { candidateStakeMore } from "./candidateStakeMore";
-describe("staking collator increases staked amount", () => {
+describe("staking, stake more funds for a collator candidate", () => {
   it("should work", () => {
     const unsigned = candidateStakeMore(
       TEST_METHOD_ARGS.staking.collator.candidateStakeMore,

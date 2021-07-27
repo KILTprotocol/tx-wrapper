@@ -18,8 +18,7 @@ export interface StakingDelegatorStakeMoreArgs extends Args {
 }
 
 /**
- * Delegator increases the stake on a collator, but can't stake more the maximum amount.
- * When does it come into effect?
+ * Increase the stake for delegating a collator candidate
  *
  * @param args - Arguments specific to this method.
  * @param info - Information required to construct the transaction.

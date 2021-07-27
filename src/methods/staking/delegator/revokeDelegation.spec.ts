@@ -5,7 +5,7 @@ import {
   MASHNET_NODE_TEST_OPTIONS,
 } from "../../../tests/constants";
 import { revokeDelegation } from "./revokeDelegation";
-describe("staking terminates an ongoing delegation for a given collator candidate", () => {
+describe("staking, terminates an ongoing delegation for a given collator candidate", () => {
   it("should work", () => {
     const unsigned = revokeDelegation(
       TEST_METHOD_ARGS.staking.delegator.revokeDelegation,

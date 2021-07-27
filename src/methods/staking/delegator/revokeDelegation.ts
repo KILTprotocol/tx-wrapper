@@ -18,7 +18,7 @@ export interface StakingRevokeDelegatorsArgs extends Args {
 }
 
 /**
- * cancel the leave action from the Delegators pool. When does it come into effect?
+ * Terminates an ongoing delegation for a given collator candidate
  *
  * @param args - Arguments specific to this method.
  * @param info - Information required to construct the transaction.

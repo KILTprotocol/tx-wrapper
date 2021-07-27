@@ -14,7 +14,7 @@ export interface StakingCancelLeaveCandidatesArgs extends Args {
 }
 
 /**
- * cancel the leave action from the Candidates pool. When does it come into effect?
+ * Revert the previously requested exit of the network of a collator
  *
  * @param args - Arguments specific to this method.
  * @param info - Information required to construct the transaction.

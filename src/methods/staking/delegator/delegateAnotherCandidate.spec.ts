@@ -5,7 +5,7 @@ import {
   MASHNET_NODE_TEST_OPTIONS,
 } from "../../../tests/constants";
 import { delegateAnotherCandidate } from "./delegateAnotherCandidate";
-describe("staking delegate to another collator", () => {
+describe("staking, delegate to another collator", () => {
   it("should work", () => {
     const unsigned = delegateAnotherCandidate(
       TEST_METHOD_ARGS.staking.delegator.delegateAnotherCandidate,

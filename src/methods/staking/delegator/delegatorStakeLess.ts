@@ -18,8 +18,7 @@ export interface StakingDelegatorStakeLessArgs extends Args {
 }
 
 /**
- * Delegator decreases the stake on a collator, but can't stake less the minimum amount.
- * When does it come into effect?
+ * Reduce the stake for delegating a collator candidate
  *
  * @param args - Arguments specific to this method.
  * @param info - Information required to construct the transaction.
