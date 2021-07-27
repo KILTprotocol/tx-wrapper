@@ -17,10 +17,10 @@
   },
   "scripts": {
     "build": "tsc --declaration -p tsconfig.json",
-    "kilt": "node lib/kiltExample",
-    "bulk": "node lib/tests/bulkTransfers",
-    "transfers": "node lib/tests/multipleTransfers",
-    "multi": "node lib/tests/multipleSendingAccounts",
+    "kilt": "node lib/examples/kiltExample",
+    "bulk": "node lib/examples/bulkTransfers",
+    "transfers": "node lib/examples/multipleTransfers",
+    "multi": "node lib/examples/multipleSendingAccounts",
     "test": "jest"
   },
   "dependencies": {
