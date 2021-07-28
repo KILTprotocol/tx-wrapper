@@ -89,5 +89,6 @@ describe("Checks the transfer method while connected to the chain", () => {
     expectedTxHash = construct.txHash(tx);
 
     actualTxHash = await rpcToLocalNode("author_submitExtrinsic", [tx]);
+    expect(expectedTxHash).toEqual(actualTxHash)
   }, 30000);
 });
