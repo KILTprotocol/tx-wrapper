@@ -13,6 +13,7 @@ import { rpcToLocalNode, signWith } from "../util";
 import { methods, getRegistry } from "../index";
 
 let alice: KeyringPair;
+let bob: KeyringPair;
 let blockHash: string;
 let genesisHash: string;
 let metadataRpc: any;
@@ -31,6 +32,7 @@ beforeAll(async () => {
 
   keyring = new Keyring();
   alice = keyring.addFromUri("//Alice", { name: "Alice" }, "ed25519");
+  bob = keyring.addFromUri("//Bob", { name: "Bob" }, "ed25519");
   const { specVersion, transactionVersion, specName } = await rpcToLocalNode(
     "state_getRuntimeVersion"
   );
@@ -54,7 +56,7 @@ describe("Checks the transfer method while connected to the chain", () => {
     unsigned = methods.balances.transfer(
       {
         value: "90071992547409910",
-        dest: "4sejigvu6STHdYmmYf2SuN92aNp8TbrsnBBDUj7tMrJ9Z3cG",
+        dest: deriveAddress(bob.publicKey, 38),
       },
       {
         address: deriveAddress(alice.publicKey, 38),
@@ -89,6 +91,6 @@ describe("Checks the transfer method while connected to the chain", () => {
     expectedTxHash = construct.txHash(tx);
 
     actualTxHash = await rpcToLocalNode("author_submitExtrinsic", [tx]);
-    expect(expectedTxHash).toEqual(actualTxHash)
+    expect(expectedTxHash).toEqual(actualTxHash);
   }, 30000);
 });
