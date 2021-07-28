@@ -2,23 +2,23 @@ import { types12 as kiltDefinitions } from "@kiltprotocol/type-definitions";
 import { RegistryTypes } from "@polkadot/types/types";
 import { methods as substrateMethods } from "@substrate/txwrapper-substrate";
 import {
-  getRegistryBase,
-  GetRegistryOptsCore,
-  getSpecTypes,
-  TypeRegistry,
-} from "@substrate/txwrapper-core";
+	getRegistryBase,
+	GetRegistryOptsCore,
+	getSpecTypes,
+	TypeRegistry,
+} from '@substrate/txwrapper-core'
 
 // Exporting relative methods
 // Possibly more to be added in the future
 export const methods = {
-  balances: substrateMethods.balances,
-  utility: substrateMethods.utility,
-  session: substrateMethods.session,
-  democracy: substrateMethods.democracy,
-};
+	balances: substrateMethods.balances,
+	utility: substrateMethods.utility,
+	session: substrateMethods.session,
+	democracy: substrateMethods.democracy,
+}
 
 // Adding all the core as an export
-export * from "@substrate/txwrapper-core";
+export * from '@substrate/txwrapper-core'
 
 // KILT registry
 
@@ -42,7 +42,7 @@ const KNOWN_CHAIN_PROPERTIES = {
  * Options for the `getRegistry` function.
  */
 export interface GetRegistryOpts extends GetRegistryOptsCore {
-  specName: keyof typeof KNOWN_CHAIN_PROPERTIES;
+	specName: keyof typeof KNOWN_CHAIN_PROPERTIES
 }
 
 /**
@@ -51,20 +51,20 @@ export interface GetRegistryOpts extends GetRegistryOptsCore {
  * @param GetRegistryOptions specName, chainName, specVersion, and metadataRpc of the current runtime
  */
 export function getRegistry({
-  specName,
-  chainName,
-  specVersion,
-  metadataRpc,
-  properties,
+	specName,
+	chainName,
+	specVersion,
+	metadataRpc,
+	properties,
 }: GetRegistryOpts): TypeRegistry {
   const registry = new TypeRegistry();
   registry.setKnownTypes({
     types: kiltDefinitions as unknown as RegistryTypes,
   });
 
-  return getRegistryBase({
-    chainProperties: properties || KNOWN_CHAIN_PROPERTIES[specName],
-    specTypes: getSpecTypes(registry, chainName, specName, specVersion),
-    metadataRpc,
-  });
+	return getRegistryBase({
+		chainProperties: properties || KNOWN_CHAIN_PROPERTIES[specName],
+		specTypes: getSpecTypes(registry, chainName, specName, specVersion),
+		metadataRpc,
+	})
 }
