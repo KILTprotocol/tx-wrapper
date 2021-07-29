@@ -2,7 +2,7 @@
 
 ## How to use `KILT tx-wrapper`
 
-The following tutorial interacts with the production KILT chain. We are using the KILT production chain (<https://github.com/KILTprotocol/mashnet-node/tree/master>).
+The following tutorial interacts with the production KILT chain (<https://github.com/KILTprotocol/mashnet-node/tree/master>).
 
 ### Starting
 
