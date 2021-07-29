@@ -1,20 +1,20 @@
 import {
-  Args,
-  BaseTxInfo,
-  defineMethod,
-  OptionsWithMeta,
-  UnsignedTransaction,
-} from "@substrate/txwrapper-core";
+	Args,
+	BaseTxInfo,
+	defineMethod,
+	OptionsWithMeta,
+	UnsignedTransaction,
+} from '@substrate/txwrapper-core'
 
 export interface StakingDelegatorStakeMoreArgs extends Args {
-  /**
-   * The SS-58 encoded Collators address.
-   */
-  candidate: string;
-  /**
-   * Increase amount staked.
-   */
-  more: string;
+	/**
+	 * The SS-58 encoded Collators address.
+	 */
+	candidate: string
+	/**
+	 * Increase amount staked.
+	 */
+	more: string
 }
 
 /**
@@ -25,19 +25,19 @@ export interface StakingDelegatorStakeMoreArgs extends Args {
  * @param options - Registry and metadata used for constructing the method.
  */
 export function delegatorStakeMore(
-  args: StakingDelegatorStakeMoreArgs,
-  info: BaseTxInfo,
-  options: OptionsWithMeta
+	args: StakingDelegatorStakeMoreArgs,
+	info: BaseTxInfo,
+	options: OptionsWithMeta
 ): UnsignedTransaction {
-  return defineMethod(
-    {
-      method: {
-        args,
-        name: "delegatorStakeMore",
-        pallet: "parachainStaking",
-      },
-      ...info,
-    },
-    options
-  );
+	return defineMethod(
+		{
+			method: {
+				args,
+				name: 'delegatorStakeMore',
+				pallet: 'parachainStaking',
+			},
+			...info,
+		},
+		options
+	)
 }
