@@ -12,13 +12,13 @@ The transaction can be combined with the [substrate-sidecart](https://paritytech
 
 Install dependencies
 
-```JS
+```shell
 yarn install
 ```
 
 Build the library
 
-```JS
+```shell
 yarn run build
 ```
 

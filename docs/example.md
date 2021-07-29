@@ -8,25 +8,25 @@ The following tutorial interacts with the production KILT chain. We are using th
 
 1. fetch the latest KILT node from the link above. Follow the intstructions to build and start a dev version of the chain.
 
-```bash
+```shell
 cargo run --release -p mashnet-node -- --tmp --dev --ws-port 9944 --port 30444 --alice --ws-external --rpc-external --rpc-cors all --rpc-methods=unsafe
 ```
 
 2. Install dependencies
 
-```JS
+```shell
 yarn install
 ```
 
 3. Build
 
-```JS
+```shell
 yarn run build
 ```
 
 4. Run the example script. It will interact with your local node.
 
-```JS
+```shell
 yarn run kilt
 ```
 
@@ -34,7 +34,7 @@ yarn run kilt
 
 The script will output something similar to the following. The value's will differ.
 
-```bash
+```shell
 Alices SS58-Encoded Address: 4r1WkS3t8rbCb11H8t3tJvGVCynwDXSUBiuGB6sLRHzCLCjs
 
 Decoded Transaction
