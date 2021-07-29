@@ -31,6 +31,7 @@ Once you have all the necessary information, you will need to:
 3. Sign the payload.
 4. Serialize the signed payload into a transaction.
 5. Submit the serialized transaction.
+   
    Parity provides the following tools to help perform these steps.
 
 ## KILT TX-Wrapper
