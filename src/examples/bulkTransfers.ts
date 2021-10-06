@@ -33,7 +33,7 @@ async function bulkTransfers(
 	])
 
 	const registry = getRegistry({
-		chainName: 'mashnet-node',
+		chainName: 'kilt-spiritnet',
 		specName,
 		specVersion,
 		metadataRpc,

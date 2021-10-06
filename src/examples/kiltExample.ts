@@ -21,7 +21,7 @@ async function main(): Promise<void> {
 	await cryptoWaitReady()
 	// Create a new keyring, and add an "Alice" account
 	const keyring = new Keyring()
-	const alice = keyring.addFromUri('//Alice', { name: 'Alice' }, 'ed25519')
+	const alice = keyring.addFromUri('//Alice', { name: 'Alice' }, 'sr25519')
 	console.log(
 		"Alice's SS58-Encoded Address:",
 		deriveAddress(alice.publicKey, 38)
@@ -40,7 +40,7 @@ async function main(): Promise<void> {
 
 	// Create KILT mashnet type registry.
 	const registry = getRegistry({
-		chainName: 'mashnet-node',
+		chainName: 'kilt-spiritnet',
 		specName,
 		specVersion,
 		metadataRpc,

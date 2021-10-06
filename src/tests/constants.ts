@@ -23,8 +23,8 @@ export const TEST_BASE_TX_INFO = {
 export const MASHNET_NODE_TEST_OPTIONS = {
 	metadataRpc,
 	registry: getRegistry({
-		chainName: 'mashnet-node',
-		specName: 'mashnet-node',
+		chainName: 'kilt-spiritnet',
+		specName: 'kilt-spiritnet',
 		specVersion: 16,
 		metadataRpc,
 	}),

@@ -31,7 +31,7 @@ async function multiAccountTransfers(transfers: Transferables[]) {
 		])
 
 		const registry = getRegistry({
-			chainName: 'mashnet-node',
+			chainName: 'kilt-spiritnet',
 			specName,
 			specVersion,
 			metadataRpc,
