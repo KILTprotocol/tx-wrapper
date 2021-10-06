@@ -19,5 +19,5 @@
     "pretty": true
   },
   "include": ["src/**/*.ts", "test/jest.setup-file.ts"],
-  "exclude": ["node_modules", "src/__integrationtests__", "lib"]
+  "exclude": ["node_modules", "**/*.spec.ts", "src/__integrationtests__", "lib"]
 }

@@ -31,8 +31,8 @@ beforeAll(async () => {
 	await cryptoWaitReady()
 
 	keyring = new Keyring()
-	alice = keyring.addFromUri('//Alice', { name: 'Alice' }, 'ed25519')
-	bob = keyring.addFromUri('//Bob', { name: 'Bob' }, 'ed25519')
+	alice = keyring.addFromUri('//Alice', { name: 'Alice' }, 'sr25519')
+	bob = keyring.addFromUri('//Bob', { name: 'Bob' }, 'sr25519')
 	const { specVersion, transactionVersion, specName } = await rpcToLocalNode(
 		'state_getRuntimeVersion'
 	)
@@ -42,7 +42,7 @@ beforeAll(async () => {
 	metadataRpc = await rpcToLocalNode('state_getMetadata')
 
 	registry = getRegistry({
-		chainName: 'mashnet-node',
+		chainName: 'kilt-spiritnet',
 		specName: getRuntimeVersion.specName,
 		specVersion: getRuntimeVersion.specVersion,
 		metadataRpc,

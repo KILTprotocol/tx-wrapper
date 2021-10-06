@@ -1,12 +1,12 @@
-import { types8 as kiltDefinitions } from '@kiltprotocol/type-definitions'
+import { types25 as kiltDefinitions } from '@kiltprotocol/type-definitions'
 import { RegistryTypes } from '@polkadot/types/types'
+import { methods as substrateMethods } from '@substrate/txwrapper-substrate'
 import {
 	getRegistryBase,
 	GetRegistryOptsCore,
 	getSpecTypes,
 	TypeRegistry,
 } from '@substrate/txwrapper-core'
-import { methods as substrateMethods } from '@substrate/txwrapper-substrate'
 
 // Exporting relative methods
 // Possibly more to be added in the future
@@ -29,10 +29,10 @@ export * from '@substrate/txwrapper-core'
  * by `system_properties` call, but since they don't change much, it's pretty safe to hardcode them.
  */
 const KNOWN_CHAIN_PROPERTIES = {
-	mashnet: {
+	'kilt-spiritnet': {
 		ss58Format: 38,
 		tokenDecimals: 15,
-		tokenSymbol: 'KILT',
+		tokenSymbol: 'PILT',
 	},
 }
 

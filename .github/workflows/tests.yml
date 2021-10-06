@@ -6,7 +6,7 @@ on:
       - develop
       - master
     tags:
-      - "*"
+      - '*'
   pull_request:
     branches:
       - develop
@@ -89,5 +89,5 @@ jobs:
           docker pull $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
           docker run -d --rm -p 9933:9933 $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG --dev --ws-port 9944 --ws-external --rpc-external --rpc-methods=unsafe
           sleep 5s
-          yarn test
+          yarn test:integration
           docker stop $(docker ps -f ancestor=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -q)

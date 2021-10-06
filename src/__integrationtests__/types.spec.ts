@@ -24,7 +24,7 @@ beforeAll(async () => {
 describe('checks the compatability of the current kilt types', () => {
 	it('checks the registry with the current types', () => {
 		getRegistry({
-			chainName: 'mashnet-node',
+			chainName: 'kilt-spiritnet',
 			specName: getRuntimeVersion.specName,
 			specVersion: getRuntimeVersion.specVersion,
 			metadataRpc,
