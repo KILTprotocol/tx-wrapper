@@ -25,11 +25,11 @@
     "test": "jest --group=integration"
   },
   "dependencies": {
-    "@kiltprotocol/type-definitions": "^0.1.5",
-    "@substrate/txwrapper-core": "^1.1.2",
-    "@substrate/txwrapper-polkadot": "^1.1.2",
-    "@substrate/txwrapper-registry": "^1.1.2",
-    "@substrate/txwrapper-substrate": "^1.1.2"
+    "@kiltprotocol/type-definitions": "^0.1.19",
+    "@substrate/txwrapper-core": "^1.2.17",
+    "@substrate/txwrapper-polkadot": "^1.2.17",
+    "@substrate/txwrapper-registry": "^1.2.17",
+    "@substrate/txwrapper-substrate": "^1.2.17"
   },
   "devDependencies": {
     "@babel/parser": "^7.14.3",
