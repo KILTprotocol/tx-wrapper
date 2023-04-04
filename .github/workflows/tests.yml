@@ -39,26 +39,7 @@ jobs:
         run: yarn install --immutable
       - name: yarn build
         run: yarn build
-      - name: zip build
-        run: zip -r build.zip .
-      - name: upload build
-        uses: actions/upload-artifact@v3
-        with:
-          name: build-14.x
-          path: build.zip
-
-  integration_test:
-    runs-on: ubuntu-latest
-
-    needs: build
-
-    steps:
-      - uses: actions/download-artifact@v3
-        with:
-          name: build-14.x
-      - name: unzip
-        run: unzip build.zip -d .
-
+   
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v2
         with:
