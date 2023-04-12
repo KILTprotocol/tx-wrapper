@@ -28,48 +28,20 @@ jobs:
     needs: check_skip
 
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v3
       - name: Use Node.js 14
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
           node-version: 14
+          cache: 'yarn'
 
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
-      - uses: actions/cache@v2
-        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ matrix.node-version }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ matrix.node-version }}-yarn-
       - name: yarn install
         run: yarn install --immutable
       - name: yarn build
         run: yarn build
-      - name: zip build
-        run: zip -r build.zip .
-      - name: upload build
-        uses: actions/upload-artifact@v2
-        with:
-          name: build-14.x
-          path: build.zip
-
-  integration_test:
-    runs-on: ubuntu-latest
-
-    needs: build
-
-    steps:
-      - uses: actions/download-artifact@v2
-        with:
-          name: build-14.x
-      - name: unzip
-        run: unzip build.zip -d .
-
+   
       - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v1
+        uses: aws-actions/configure-aws-credentials@v2
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
