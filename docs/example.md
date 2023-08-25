@@ -2,14 +2,14 @@
 
 ## How to use `KILT tx-wrapper`
 
-The following tutorial interacts with the production KILT chain (<https://github.com/KILTprotocol/mashnet-node/tree/master>).
+The following tutorial interacts with the production KILT chain (<https://github.com/KILTprotocol/kilt-node/tree/master>).
 
 ### Starting
 
 1. fetch the latest KILT node from the link above. Follow the intstructions to build and start a dev version of the chain.
 
 ```shell
-cargo run --release -p mashnet-node -- --tmp --dev --ws-port 9944 --port 30444 --alice --ws-external --rpc-external --rpc-cors all --rpc-methods=unsafe
+cargo run --release -p standalone-node -- --tmp --dev --port 30444 --alice --rpc-port 9933 --rpc-external --rpc-cors all --rpc-methods=unsafe
 ```
 
 2. Install dependencies
